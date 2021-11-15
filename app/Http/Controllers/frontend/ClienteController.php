@@ -5,11 +5,17 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Pedido;
 use App\Models\Pedidodetalle;
+use App\Models\User;
+use App\Traits\PedidoTrait;
 use Auth;
+use Cart;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
+
+    use PedidoTrait;
+
     public function micuenta(Request $request)
     {
 
@@ -69,5 +75,65 @@ class ClienteController extends Controller
         }
 
         return view('frontend.render.detallePedido', compact('detalle', 'numpedido'));
+    }
+
+
+    public function login(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required'            
+        ]);
+
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            $user = Auth::user();
+
+            /*
+             * ceamos el pedido
+             */
+            $pedido = $this->crearPedido(Cart::content(), Cart::total(), $user->id);
+
+            return response()->json(['cliente' => $user, 'redirect' => "/pagar/$pedido->id"],200);
+        }
+
+        return response()->json(['msj' => 'Credenciales erróneas'], 401);
+
+    }
+
+
+
+    public function registrar(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'            
+        ]);
+
+
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        /*
+         * Nos logueamos
+         */
+
+        Auth::login($user);
+
+
+        /*
+         * ceamos el pedido
+         */
+        $pedido = $this->crearPedido(Cart::content(), Cart::total(), $user->id);
+
+        return response()->json(['cliente' => $user, 'redirect' => "/pagar/$pedido->id"],200);
+
     }
 }

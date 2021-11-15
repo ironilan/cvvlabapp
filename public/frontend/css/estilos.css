@@ -57,6 +57,13 @@
 	text-align: center;
 }
 
+.app_modal_logo h6{
+	border-bottom: 1px solid #1eaccc;
+	padding-bottom: 10px;
+	padding-top: 10px;
+    margin-bottom: 18px;
+}
+
 
 @media only screen and (max-width: 900px) {
 	.app_content_modal{

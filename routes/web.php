@@ -55,9 +55,13 @@ Route::post('webhooks', WebhooksController::class);
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('micuenta', [ClienteController::class, 'micuenta'])->name('cliente.micuenta');
 	Route::post('micuenta', [ClienteController::class, 'setPefil'])->name('cliente.setPefil');
-
 	Route::get('micuenta/detalle_pedido', [ClienteController::class, 'detalle_pedido'])->name('cliente.detalle_pedido');
 });
+
+
+//modal
+Route::post('login_modal', [ClienteController::class, 'login'])->name('cliente.login');
+Route::post('registrar_modal', [ClienteController::class, 'registrar'])->name('cliente.registrar');
 
 Auth::routes();
 

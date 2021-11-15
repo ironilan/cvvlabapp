@@ -116,11 +116,11 @@
 				<form id="formLogin">
 					<div class="form-group">
 						<label for="email">Email</label>
-						<input type="text" class="form-control criterio" placeholder="Email">
+						<input type="email" name="email" class="form-control criterio" placeholder="Email" required>
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label>
-						<input type="password" class="form-control criterio" placeholder="********">
+						<input type="password" name="password" class="form-control criterio" placeholder="********" required>
 					</div>
 					<div class="form-group ">
 						<div class="row">
@@ -137,20 +137,23 @@
 			</div>
 		</div>
 		<div class="app_register">
-			<h4>Crear cuenta</h4>
+			<div class="app_modal_logo">
+				<img src="{{ asset('frontend/img/logo-ccvlab.png') }}" alt="">
+				<h6>Crea tu cuenta</h6>
+			</div>
 			<div class="app_card_modal">
 				<form id="formRegister">
 					<div class="form-group">
-						<label for="email">Nombre</label>
-						<input type="text" class="form-control criterio" placeholder="Nombre">
+						<label for="name">Nombre</label>
+						<input type="text" class="form-control criterio" placeholder="Nombre" name="name" required>
 					</div>
 					<div class="form-group">
 						<label for="email">Email</label>
-						<input type="text" class="form-control criterio" placeholder="Email">
+						<input type="text" class="form-control criterio" placeholder="Email" name="email" required>
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label>
-						<input type="password" class="form-control criterio" placeholder="********">
+						<input type="password" class="form-control criterio" placeholder="********" name="password" required>
 					</div>
 					<div class="form-group ">
 						<div class="row">
@@ -158,7 +161,7 @@
 								<a href="javascript:void(0)" class="font-weight-bold app_link_log">¿Ya tienes una cuenta?</a>
 							</div>
 							<div class="col text-right">
-								<button class="btn_1 medium  btn_ir">Crear cuenta</button>
+								<button type="submit" class="btn_1 medium  btn_ir">Crear cuenta</button>
 							</div>
 						</div>
 						
@@ -248,6 +251,32 @@
 		$('.btn_close_modal').click(() => {
 			$('#modalAuth').hide();
 		});
+
+
+
+		$('#formRegister').submit(function(e){
+	        e.preventDefault();
+	        
+	        let token = '{{ csrf_token() }}';
+	        let data = new FormData(document.getElementById("formRegister"));
+	        let url = '{{ route('cliente.registrar') }}';
+	        
+	        $.ajax({
+	            headers: { 'X-CSRF-TOKEN': token },
+	            url: url,
+	            type: 'POST',
+	            contentType: false,
+	            data: data,
+	            processData: false,
+	            success: res => {
+	               location.href = res.redirect;
+	               //console.log(res);
+	            },
+	            error: error => {
+	                console.log(error);
+	            }
+	        });
+	    });
 		
 	</script>
 @endsection
