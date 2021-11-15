@@ -5,13 +5,18 @@
 <div class="bg_color_2">
 	<div class="container margin_60_35">
 		<div id="login">
-			<h1>Ingresa a tu panel!</h1>
+			<div class="app_modal_logo">
+				<img src="{{ asset('frontend/img/logo-ccvlab.png') }}" alt="">
+				<h1>Ingresa a tu panel!</h1>
+			</div>
+			
 			<div class="box_form">
+				
 				<form method="POST" action="{{ route('login') }}">
                         @csrf
-					<a href="#0" class="social_bt facebook">Login con Facebook</a>
+					{{-- <a href="#0" class="social_bt facebook">Login con Facebook</a>
 					<a href="#0" class="social_bt google">Login con Google</a>
-					<div class="divider"><span>Or</span></div>
+					<div class="divider"><span>Or</span></div> --}}
 					<div class="form-group">
 						<input type="email" class="form-control" placeholder="Ingresa tu email" name="email">
 						@error('email')

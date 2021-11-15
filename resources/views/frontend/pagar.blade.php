@@ -56,9 +56,9 @@
 	<div class="row">
 		<div class="col-xl-8 col-lg-8">
 		<div class="box_general_3 cart">
-			<div class="message">
+			{{-- <div class="message">
 				<p>¿Ya eres Cliente? <a href="{{ url('/login?redirect_to='.url()->current()) }}"> Ingresa con tu Cuenta</a></p>
-			</div>
+			</div> --}}
 			<div class="form_title">
 				<h3><strong>1</strong>Datos Personales</h3>
 				<p>
@@ -96,7 +96,7 @@
 			
 			<!--End step -->
 
-			<div class="form_title">
+			{{-- <div class="form_title">
 				<h3><strong>3</strong>Datos de Facturación</h3>
 				<p>
 					Mussum ipsum cacilds, vidis litro abertis.
@@ -152,14 +152,14 @@
 				</div>
 				<!--End row -->
 			</div>
-			<hr>
+			<hr> --}}
 			<!--End step -->
 			<div id="policy">
-				<h4>Cancellation policy</h4>
+				<h4>Aceptar términos</h4>
 				<div class="form-group">
 					<div class="checkboxes">
-						<label class="container_check">I accept <a href="#0">terms and conditions and general policy</a>
-							<input type="checkbox">
+						<label class="container_check" id="check_terminos">Al hacer click <a href="{{ url('terminos_y_condiciones') }}">aceptas todos lo términos y condiciones</a>
+							<input type="checkbox" name="terminos">
 							<span class="checkmark"></span>
 						</label>
 					</div>
@@ -199,7 +199,22 @@
             container: '.cho-container', // Indica dónde se mostrará el botón de pago
             label: 'Pagar', // Cambia el texto del botón de pago (opcional)
       }
-});
+	});
+
+
+	$('.mercadopago-button').attr('disabled', true);
+
+
+	$('#check_terminos').click(function(){
+		let terminos = $('input[name=terminos]:checked').val();
+		if (terminos) {
+			$('.mercadopago-button').addClass('mp_habilitado').removeAttr('disabled');
+		}else{
+			$('.mercadopago-button').removeClass('mp_habilitado').attr('disabled', true);
+		}
+	});
+
+
 </script>
 
 

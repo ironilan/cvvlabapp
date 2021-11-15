@@ -42,7 +42,7 @@ class PedidoController extends Controller
 
     public function pagar(Pedido $pedido)
     {
-     
+        
         //return $pedido;
         if ($pedido) {
 

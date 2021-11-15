@@ -4,20 +4,22 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Area;
+use App\Models\Banner;
 use App\Models\Examen;
 use App\Models\Tipomuestra;
+use Carbon\Carbon;
 use Cart;
 use Illuminate\Http\Request;
-use Session;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
+use Session;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        
-        return view('welcome');
+        $promociones = Examen::whereTipo('promocion')->latest('id')->paginate(10);
+        $banners = Banner::all();
+        return view('welcome', compact('promociones', 'banners'));
     }
 
 
@@ -195,8 +197,8 @@ class HomeController extends Controller
     }
 
 
-    // public function pay(Request $request)
-    // {
-    //     $payment_id = $request->payment_id;
-    // }
+    public function terminos(Request $request)
+    {
+        return view('frontend.terminos');
+    }
 }

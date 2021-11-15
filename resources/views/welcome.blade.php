@@ -34,7 +34,7 @@
       </div>
       <!-- /row -->
       <p class="text-center">Valoramos tu tiempo, por ello habilitamos las citas en línea, para que puedas agendar tus pruebas, desde donde estés.      </p>
-      <p class="text-center"><a href="list.html" class="btn_1 medium">RESERVA TU CITA</a></p>
+      <p class="text-center"><a href="{{ url('examenes') }}" class="btn_1 medium">RESERVA TU CITA</a></p>
 
     </div>
     <!-- /container -->
@@ -46,36 +46,15 @@
           <p>Conoce nuestros paquetes promocionales</p>
         </div>
         <div id="reccomended" class="owl-carousel owl-theme">
+          @foreach ($promociones as $prom)
           <div class="item">
-            <a href="detail-page.html">
-              <div class="views"><i class="icon-eye-7"></i>140</div>
-              <img src="http://via.placeholder.com/500x500.jpg" alt="">
+            <a href="#">
+              <div class="views"><i class="icon-money"></i>{{$prom->price}}</div>
+              <img src="{{Storage::url($prom->image)}}" alt="">
             </a>
           </div>
-          <div class="item">
-            <a href="detail-page.html">
-              <div class="views"><i class="icon-eye-7"></i>120</div>
-              <img src="http://via.placeholder.com/500x500.jpg" alt="">
-            </a>
-          </div>
-          <div class="item">
-            <a href="detail-page.html">
-              <div class="views"><i class="icon-eye-7"></i>115</div>
-              <img src="http://via.placeholder.com/500x500.jpg" alt="">
-            </a>
-          </div>
-          <div class="item">
-            <a href="detail-page.html">
-              <div class="views"><i class="icon-eye-7"></i>98</div>
-              <img src="http://via.placeholder.com/500x500.jpg" alt="">
-            </a>
-          </div>
-          <div class="item">
-            <a href="detail-page.html">
-              <div class="views"><i class="icon-eye-7"></i>98</div>
-              <img src="http://via.placeholder.com/500x500.jpg" alt="">
-            </a>
-          </div>
+          @endforeach
+          
         </div>
         <!-- /carousel -->
       </div>
@@ -149,7 +128,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" class="draw-arrow tail-1" d="M40.6,78.1C39,71.3,37.2,64.6,35.2,58" />
               <path stroke-linecap="round" stroke-linejoin="round" class="draw-arrow tail-2" d="M39.8,78.5c-7.2,1.7-14.3,3.3-21.5,4.9" />
             </svg>
-            <a href="list.html" class="btn_1 medium">RESERVA TU CITA</a>
+            <a href="{{ url('examenes') }}" class="btn_1 medium">RESERVA TU CITA</a>
             </div>
           </div>
         </div>

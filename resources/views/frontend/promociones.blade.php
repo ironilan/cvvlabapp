@@ -34,7 +34,7 @@
 									<p>{{$prom->description}}</p>
 									<ul>
 										<li>
-												<a style="background: #fff;border: 2px solid #1eaccc;color: #1eaccc;padding: 5px 20px;font-weight: 500;border-radius: 30px;" href="#">AGREGAR A COTIZACIÓN</a>
+											<a style="background: #fff;border: 2px solid #1eaccc;color: #1eaccc;padding: 5px 20px;font-weight: 500;border-radius: 30px;" href="javascript:void(0)" onclick="addCart({{$prom->id}})">AGREGAR A COTIZACIÓN</a>
 										</li>
 										
 									</ul>
@@ -75,4 +75,18 @@
 
 @section('estilos')
 <link href="{{ asset('frontend/css/blog.css') }}" rel="stylesheet">
+@endsection
+
+
+@section('scripts')
+<script type="text/javascript">
+	const addCart = (idexamen) => {
+		let url = `{{ url('setCartExamen') }}?examen=${idexamen}`;
+
+		$.get(url, res =>{
+			$('#sidebar').html(res);
+		})
+	}
+</script>
+
 @endsection

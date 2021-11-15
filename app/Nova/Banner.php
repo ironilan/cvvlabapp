@@ -45,9 +45,9 @@ class Banner extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Título', 'title')->rules('required','string', 'max:255'),
             Text::make('Subtítulo', 'subtitle')->rules('required','string', 'max:255'),
-            Text::make('Texto del boton', 'btntext')->rules('required','string', 'max:255'),
-            Text::make('Link', 'link')->rules('required','string', 'max:255'),            
-            Image::make('Imagen 1200x600px', 'image')->disk('web')->disableDownload(),
+            //Text::make('Texto del boton', 'btntext')->rules('required','string', 'max:255'),
+            //Text::make('Link', 'link')->rules('required','string', 'max:255'),            
+            Image::make('Imagen 1400x800', 'image')->disk('web')->disableDownload(),
         ];
     }
 

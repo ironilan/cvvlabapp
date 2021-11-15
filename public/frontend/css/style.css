@@ -610,10 +610,10 @@ ul#top_access li#user figure img {
 }
 #logo_home h1 a {
   width: 163px;
-  height: 36px;
+  height: 54px;
   display: block;
   background: url(../img/logo-ccvlab.png) no-repeat 0 0;
-  background-size: 163px 36px;
+ /* background-size: 163px 36px;*/
   text-indent: -9999px;
 }
 

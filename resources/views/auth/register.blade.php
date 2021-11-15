@@ -5,7 +5,10 @@
 <div class="bg_color_2">
 	<div class="container margin_60_35">
 		<div id="login">
-			<h1>Regístrate!</h1>
+			<div class="app_modal_logo">
+				<img src="{{ asset('frontend/img/logo-ccvlab.png') }}" alt="">
+				<h1>Crea tu cuenta!</h1>
+			</div>
 			<div class="box_form">
 				<form method="POST" action="{{ route('register') }}">
                     @csrf

@@ -3,19 +3,20 @@
 @section('contenido')
 
 <div id="breadcrumb">
-	<div class="container">
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li>Nosotros</li>
-		</ul>
-	</div>
-</div>
+			<div class="container">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Category</a></li>
+					<li>Page active</li>
+				</ul>
+			</div>
+		</div>
 		<!-- /breadcrumb -->
 
 		<div class="bg_color_1">
 			<div class="container margin_120_95">
 				<div class="main_title">
-					<h1>Nosotros</h1>
+					<h1>About Findoctor</h1>
 					<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
 				</div>
 				<div class="row justify-content-between">

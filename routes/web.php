@@ -42,11 +42,7 @@ Route::get('selectFecha', [HomeController::class, 'selectFecha'])->name('selectF
 Route::get('selectHora', [HomeController::class, 'selectHora'])->name('selectHora');
 
 
-Route::post('crear/pedido', [PedidoController::class, 'crear'])->name('crear.pedido');
-Route::get('pagar/{pedido}', [PedidoController::class, 'pagar'])->name('pagar');
-Route::get('confirmado/{pedido}', [PedidoController::class, 'confirmado'])->name('pedido.confirmado');
-Route::get('error_pedido', [PedidoController::class, 'error_pedido'])->name('pedido.error_pedido');
-Route::get('pedido/{pedido}', [PedidoController::class, 'show'])->name('pedido.show');
+
 
 Route::post('webhooks', WebhooksController::class);
 
@@ -56,7 +52,17 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('micuenta', [ClienteController::class, 'micuenta'])->name('cliente.micuenta');
 	Route::post('micuenta', [ClienteController::class, 'setPefil'])->name('cliente.setPefil');
 	Route::get('micuenta/detalle_pedido', [ClienteController::class, 'detalle_pedido'])->name('cliente.detalle_pedido');
+
+	Route::post('crear/pedido', [PedidoController::class, 'crear'])->name('crear.pedido');
+	Route::get('pagar/{pedido}', [PedidoController::class, 'pagar'])->name('pagar');
+	Route::get('confirmado/{pedido}', [PedidoController::class, 'confirmado'])->name('pedido.confirmado');
+	Route::get('error_pedido', [PedidoController::class, 'error_pedido'])->name('pedido.error_pedido');
+	Route::get('pedido/{pedido}', [PedidoController::class, 'show'])->name('pedido.show');
+	
 });
+
+
+Route::get('terminos_y_condiciones', [HomeController::class, 'terminos'])->name('home.terminos');
 
 
 //modal
