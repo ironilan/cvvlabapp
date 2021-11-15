@@ -47,9 +47,6 @@ class PedidoController extends Controller
         if ($pedido) {
 
             //creamos el pedido
-            
-
-
             return view('frontend.pagar', compact('pedido'));
         }
 
@@ -60,7 +57,8 @@ class PedidoController extends Controller
 
     public function confirmado(Pedido $pedido, Request $request)
     {
-
+        //dd('ssss');
+        //return view('frontend.confirmado');
 
         $payment_id = $request->payment_id;
 
@@ -94,5 +92,12 @@ class PedidoController extends Controller
     public function show(Pedido $pedido)
     {
         return response()->json($pedido);
+    }
+
+
+
+    public function error_pedido()
+    {
+        return view('frontend.error');
     }
 }

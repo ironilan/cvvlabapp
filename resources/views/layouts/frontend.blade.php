@@ -19,6 +19,9 @@
   <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+
+ 
+
   <!-- BASE CSS -->
   <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
   <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
@@ -31,9 +34,42 @@
     
   <!-- YOUR CUSTOM CSS -->
   <link href="{{asset('frontend/css/custom.css')}}" rel="stylesheet">
+  <link href="{{asset('frontend/css/estilos.css')}}" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
   @yield('estilos')
+
+  <style>
+    .cr{
+      color: red;
+    }
+
+    .app_menu{
+      position: absolute;
+      z-index: 10000;
+      background: white;
+      width: 130px;
+      display: none;
+    }
+
+
+    .app_menu ul li a{
+      padding: 5px 0!important;
+      display: block;
+    }
+
+
+    .app_menu ul li a:hover{
+      text-decoration: underline;
+    }
+
+    .show_menu{
+      display: block!important;
+    }
+  </style>
   
 </head>
 
@@ -53,6 +89,9 @@
     
     <!-- /REVOLUTION SLIDER -->
     @yield('contenido')
+
+
+
     
   </main>
   <!-- /main content -->
@@ -62,6 +101,8 @@
   </div>
   <!-- page -->
 
+  @yield('modal')
+
   <div id="toTop"></div>
   <!-- Back to top button -->
 
@@ -69,6 +110,9 @@
   <script src="{{asset('frontend/js/jquery-3.5.1.min.js')}}"></script>
   <script src="{{asset('frontend/js/common_scripts.min.js')}}"></script>
   <script src="{{asset('frontend/js/functions.js')}}"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
   <!-- REVOLUTION SLIDER SCRIPTS -->
   <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/jquery.themepunch.tools.min.js')}}"></script>
@@ -158,6 +202,12 @@
           });
         }
       }); /*ready*/
+
+
+
+      $('.avatar_content').click(function(){
+        $('.app_menu').toggleClass('show_menu');
+      });
   </script>
 
   @yield('scripts')

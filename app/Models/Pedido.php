@@ -9,7 +9,7 @@ class Pedido extends Model
 {
     use HasFactory;
 
-    public function pedidodetalle()
+    public function pedidodetalles()
     {
         return $this->hasMany(Pedidodetalle::class);
     }

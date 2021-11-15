@@ -13,4 +13,10 @@ class Pedidodetalle extends Model
     {
         return $this->belongsTo(Pedido::class);
     }
+
+
+    public function examen()
+    {
+        return $this->belongsTo(Examen::class);
+    }
 }

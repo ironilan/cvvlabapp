@@ -1,16 +1,10 @@
 <?php
 
 
-use App\Http\Controllers\frontend\AreaController;
-use App\Http\Controllers\frontend\ArticuloController;
 use App\Http\Controllers\frontend\ClienteController;
 use App\Http\Controllers\frontend\HomeController;
-use App\Http\Controllers\frontend\LibroController;
 use App\Http\Controllers\frontend\MailController;
-use App\Http\Controllers\frontend\NotaController;
-use App\Http\Controllers\frontend\NoticiaController;
 use App\Http\Controllers\frontend\PedidoController;
-use App\Http\Controllers\frontend\PublicacionController;
 use App\Http\Controllers\frontend\TemaController;
 use App\Http\Controllers\frontend\WebhooksController;
 use Illuminate\Support\Facades\Artisan;
@@ -51,10 +45,19 @@ Route::get('selectHora', [HomeController::class, 'selectHora'])->name('selectHor
 Route::post('crear/pedido', [PedidoController::class, 'crear'])->name('crear.pedido');
 Route::get('pagar/{pedido}', [PedidoController::class, 'pagar'])->name('pagar');
 Route::get('confirmado/{pedido}', [PedidoController::class, 'confirmado'])->name('pedido.confirmado');
+Route::get('error_pedido', [PedidoController::class, 'error_pedido'])->name('pedido.error_pedido');
 Route::get('pedido/{pedido}', [PedidoController::class, 'show'])->name('pedido.show');
 
 Route::post('webhooks', WebhooksController::class);
 
+
+
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('micuenta', [ClienteController::class, 'micuenta'])->name('cliente.micuenta');
+	Route::post('micuenta', [ClienteController::class, 'setPefil'])->name('cliente.setPefil');
+
+	Route::get('micuenta/detalle_pedido', [ClienteController::class, 'detalle_pedido'])->name('cliente.detalle_pedido');
+});
 
 Auth::routes();
 

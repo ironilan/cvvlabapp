@@ -19,6 +19,7 @@ class CreateConfigsTable extends Migration
             $table->string('address')->nullable();
             $table->string('cellphone')->nullable();
             $table->string('whatsapp')->nullable();
+            $table->string('link_resultados')->nullable();
             $table->string('keywords')->nullable();
             $table->text('description')->nullable();
             $table->string('email');
