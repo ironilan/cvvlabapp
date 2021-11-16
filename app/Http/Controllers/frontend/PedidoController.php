@@ -55,14 +55,50 @@ class PedidoController extends Controller
     }
 
 
-    public function confirmado(Pedido $pedido, Request $request)
+    // public function confirmado(Pedido $pedido, Request $request)
+        // {
+        //     //dd('ssss');
+        //     //return view('frontend.confirmado');
+
+        //     $payment_id = $request->payment_id;
+
+        //     $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-1267801373949285-072100-52683c6d45f35da9fb0b4c2c5fa10d90-794511223");
+
+        //     $response = json_decode($response);
+
+        //     if($response)
+        //     {
+        //         $status = $response->status;
+
+        //         if ($status == 'approved') {
+
+
+        //             $pedido->status = 'finalizado';
+        //             $pedido->num_operation = $payment_id;
+        //             $pedido->origin = 'mercadopago';
+        //             $pedido->save();
+
+        //             return view('frontend.confirmado');
+        //         }
+        //     }
+
+        //     //dump($response);
+
+        //     abort(404);
+    // }
+
+
+    /**
+     * este metodo recibe 3 posibles respuestas, approved, failure, pending
+     */
+    public function procesar_pago(Pedido $pedido, Request $request)
     {
-        //dd('ssss');
-        //return view('frontend.confirmado');
+       
 
         $payment_id = $request->payment_id;
+        $access_token = config('services.mercadopago.token');
 
-        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-1267801373949285-072100-52683c6d45f35da9fb0b4c2c5fa10d90-794511223");
+        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=$access_token");
 
         $response = json_decode($response);
 
@@ -79,6 +115,22 @@ class PedidoController extends Controller
                 $pedido->save();
 
                 return view('frontend.confirmado');
+            }elseif($status == 'in_process')
+            {
+                $pedido->status = 'en_proceso';
+                $pedido->num_operation = $payment_id;
+                $pedido->origin = 'mercadopago';
+                $pedido->save();
+
+                return view('frontend.enproceso');
+            }elseif($status == 'rejected')
+            {
+                $pedido->status = 'rechazado';
+                $pedido->num_operation = $payment_id;
+                $pedido->origin = 'mercadopago';
+                $pedido->save();
+
+                return view('frontend.error');
             }
         }
 
@@ -88,7 +140,6 @@ class PedidoController extends Controller
     }
 
 
-
     public function show(Pedido $pedido)
     {
         return response()->json($pedido);
@@ -96,8 +147,8 @@ class PedidoController extends Controller
 
 
 
-    public function error_pedido()
-    {
-        return view('frontend.error');
-    }
+    // public function error_pedido()
+    // {
+    //     return view('frontend.error');
+    // }
 }

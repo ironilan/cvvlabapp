@@ -61,12 +61,12 @@
       <div class="row">
         <div class="col-md-8">
           <ul id="additional_links">
-            <li><a href="#0">Terms and conditions</a></li>
-            <li><a href="#0">Privacy</a></li>
+            <li><a href="#0">Terminos y condiciones</a></li>
+            
           </ul>
         </div>
         <div class="col-md-4">
-          <div id="copy">© {{Date('Y')}} Findoctor</div>
+          <div id="copy">© {{Date('Y')}} {{setting()->title}}</div>
         </div>
       </div>
     </div>

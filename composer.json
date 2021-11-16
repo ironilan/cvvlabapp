@@ -25,6 +25,7 @@
         "laravel/tinker": "^2.5",
         "mdixon18/fontawesome": "^0.2.1",
         "mercadopago/dx-php": "^2.4",
+        "titasgailius/search-relations": "^2.0",
         "vyuldashev/nova-money-field": "^1.4",
         "whchi/nova-tags-input": "^0.0.5"
     },

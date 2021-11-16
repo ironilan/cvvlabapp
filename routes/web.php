@@ -55,8 +55,9 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::post('crear/pedido', [PedidoController::class, 'crear'])->name('crear.pedido');
 	Route::get('pagar/{pedido}', [PedidoController::class, 'pagar'])->name('pagar');
-	Route::get('confirmado/{pedido}', [PedidoController::class, 'confirmado'])->name('pedido.confirmado');
-	Route::get('error_pedido', [PedidoController::class, 'error_pedido'])->name('pedido.error_pedido');
+	Route::get('confirmado/{pedido}', [PedidoController::class, 'procesar_pago'])->name('pedido.confirmado');
+	Route::get('failure/{pedido}', [PedidoController::class, 'procesar_pago'])->name('pedido.error_pedido');
+	Route::get('pending/{pedido}', [PedidoController::class, 'procesar_pago'])->name('pedido.pendiente');
 	Route::get('pedido/{pedido}', [PedidoController::class, 'show'])->name('pedido.show');
 	
 });

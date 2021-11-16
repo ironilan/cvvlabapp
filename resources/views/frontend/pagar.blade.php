@@ -29,8 +29,10 @@
 	//url de respuesta
 	$preference->back_urls = array(
 	    "success" => route('pedido.confirmado', $pedido),
-	    "failure" => url('/')."/failure",
-	    "pending" => url('/')."/pending"
+	    "failure" => route('pedido.error_pedido', $pedido),
+	    "pending" => route('pedido.pendiente', $pedido),
+	    // "failure" => url('/')."/failure",
+	    // "pending" => url('/')."/pending"
 	);
 	$preference->auto_return = "approved";
 

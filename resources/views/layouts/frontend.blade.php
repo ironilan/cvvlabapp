@@ -8,14 +8,52 @@
   <meta name="description" content="{{setting()->description}}">
   <meta name="keywords" content="{{setting()->keywords}}">
   <meta name="author" content="Alexis Valdez">
+
+  <meta name="lang" content="es_ES" />
+  <meta name="copyright" content="©{{Date('Y')}}. Todos los derechos reservados.">
+  <!-- Twitter START -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@virgintelco">
+  <meta name="twitter:creator" content="@virgintelco">
+  <meta name="twitter:title" content="{{setting()->title}}">
+  <meta name="twitter:description" content="{{setting()->description}}">
+  <meta name="twitter:image" content="{{Storage::url('web/'.setting()->logo)}}">
+  <!-- Twitter END -->
+  <!-- Facebook START -->
+  <meta name="facebook-domain-verification" content="m7j5tmpi1n69bogqmsm29xy4dcg7sk" />
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="website">
+  <meta property="og:site_name" content="{{setting()->title}}">
+  <meta property="og:title" content="{{setting()->title}}">
+  <meta property="og:description" content="{{setting()->description}}">
+  <meta property="og:url" content="{{Storage::url('web/'.setting()->logo)}}">
+  <!-- Facebook END -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="canonical" href="{{ url('/') }}">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{Storage::url('web/'.setting()->favicon)}}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{Storage::url('web/'.setting()->favicon)}}">
+  <link rel="icon" type="image/png" sizes="384x384" href="{{Storage::url('web/'.setting()->favicon)}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{Storage::url('web/'.setting()->favicon)}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{Storage::url('web/'.setting()->favicon)}}">
+  <link rel="icon" type="image/x-icon" href="{{Storage::url('web/'.setting()->favicon)}}">
+  {{-- <link rel="manifest" href="img/favicons/site.webmanifest.json"> --}}
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="{{Storage::url('web/'.setting()->favicon)}}">
+  <meta name="theme-color" content="#ffffff">
+
+
+
   <title>{{setting()->title}}</title>
 
   <!-- Favicons-->
-  <link rel="shortcut icon" href="{{asset('frontend/img/favicon.ico')}}" type="image/x-icon">
-  <link rel="apple-touch-icon" type="image/x-icon" href="{{asset('frontend/img/apple-touch-icon-57x57-precomposed.png')}}">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{asset('frontend/img/apple-touch-icon-72x72-precomposed.png')}}">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{asset('frontend/img/apple-touch-icon-114x114-precomposed.png')}}">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{asset('frontend/img/apple-touch-icon-144x144-precomposed.png')}}">
+  <link rel="shortcut icon" href="{{Storage::url('web/'.setting()->favicon)}}" type="image/x-icon">
+  <link rel="apple-touch-icon" type="image/x-icon" href="{{Storage::url('web/'.setting()->favicon)}}">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{Storage::url('web/'.setting()->favicon)}}">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{Storage::url('web/'.setting()->favicon)}}">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{Storage::url('web/'.setting()->favicon)}}">
 
   <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">

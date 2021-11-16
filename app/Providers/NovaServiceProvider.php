@@ -154,11 +154,19 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                         'expanded' => false,
                         'resources' => [
                             InternalLink::make([
-                                'label' => 'Pedidos',
+                                'label' => 'Confirmados',
                                 'badge' => null,
                                 'icon' => null,
                                 'target' => '_self',
                                 'path' => '/resources/pedidos',
+                                'params' => [ 'resourceId' => 1 ]
+                            ]),
+                            InternalLink::make([
+                                'label' => 'Pendientes',
+                                'badge' => null,
+                                'icon' => null,
+                                'target' => '_self',
+                                'path' => '/resources/pendientes',
                                 'params' => [ 'resourceId' => 1 ]
                             ]),
                                                         

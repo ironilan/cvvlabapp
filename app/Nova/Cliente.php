@@ -49,6 +49,8 @@ class Cliente extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Nombre', 'name')->rules('required','string', 'max:255'),
+            Text::make('Celular', 'cellphone')->rules('required','string', 'max:255'),
+            Text::make('Email', 'email')->rules('required','string', 'max:255'),
         ];
     }
 
