@@ -4,7 +4,7 @@
         <div class="col-lg-3 col-md-12">
           <p>
             <a href="{{url('/')}}" title="Findoctor">
-              <img src="{{asset('frontend/img/logo-ccvlab.png')}}" data-retina="true" alt="" width="163" height="36" class="img-fluid">
+              <img src="{{Storage::url('web/'.setting()->logo)}}" data-retina="true" alt="" class="img-fluid">
             </a>
           </p>
         </div>
@@ -37,10 +37,21 @@
           <div class="follow_us">
             <h5>Síguenos</h5>
             <ul>
+              @if (setting()->facebook)
               <li><a href="{{setting()->facebook}}"><i class="social_facebook"></i></a></li>
+              @endif
+              @if (setting()->twitter)
               <li><a href="{{setting()->twitter}}"><i class="social_twitter"></i></a></li>
+              @endif
+              @if (setting()->linkedin)
               <li><a href="{{setting()->linkedin}}"><i class="social_linkedin"></i></a></li>
+              @endif
+              @if (setting()->instagram)
               <li><a href="{{setting()->instagram}}"><i class="social_instagram"></i></a></li>
+              @endif
+              @if (setting()->youtube)
+              <li><a href="{{setting()->youtube}}"><i class="social_youtube"></i></a></li>
+              @endif
             </ul>
           </div>
         </div>

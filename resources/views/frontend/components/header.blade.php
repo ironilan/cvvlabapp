@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-lg-3 col-6">
           <div id="logo_home">
-            <h1><a href="{{url('/')}}" title="CVV Lab">CVV LAB</a></h1>
+            <h1><a href="{{url('/')}}" title="{{setting()->title}}" style="background-image: url('{{Storage::url('web/'.setting()->logo)}}')">{{setting()->title}}</a></h1>
           </div>
         </div>
         <div class="col-lg-9 col-6">

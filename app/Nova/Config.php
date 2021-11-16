@@ -48,11 +48,11 @@ class Config extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Heading::make('Datos de la empresa'),
             Text::make('Título', 'title')->rules('required','string', 'max:255'),
-            Text::make('Dirección', 'address')->rules('required','string', 'max:255')->hideFromIndex(),
+            Text::make('Dirección', 'address')->hideFromIndex(),
             Text::make('Teléfono', 'cellphone')->rules('required','string', 'min:7','max:15')->hideFromIndex(),
             Text::make('Whatsapp: 51999999999', 'whatsapp')->rules('required','numeric', 'min:10000000','max:99999999999')->hideFromIndex(),
             Text::make('Email', 'email')->rules('required','string', 'email'),
-            Textarea::make('Mapa', 'map')->rules('required','string')->hideFromIndex(),
+            //Textarea::make('Mapa', 'map')->rules('required','string')->hideFromIndex(),
             Image::make('Logo')->disk('web')->disableDownload(),
             Image::make('Logo_blanco')->disk('web')->disableDownload(),
             Heading::make('Meta data'),
@@ -110,4 +110,20 @@ class Config extends Resource
     {
         return [];
     }
+
+
+    public static function authorizedToCreate(Request $request)
+    {
+        return false;
+    }
+
+    public function authorizedToDelete(Request $request)
+    {
+        return false;
+    }
+
+    // public function authorizedToUpdate(Request $request)
+    // {
+    //     return false;
+    // }
 }
