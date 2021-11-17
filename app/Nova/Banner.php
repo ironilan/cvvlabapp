@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Techouse\SelectAutoComplete\SelectAutoComplete as Select2;
 
 class Banner extends Resource
 {
@@ -45,8 +46,13 @@ class Banner extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Título', 'title')->rules('required','string', 'max:255'),
             Text::make('Subtítulo', 'subtitle')->rules('required','string', 'max:255'),
-            //Text::make('Texto del boton', 'btntext')->rules('required','string', 'max:255'),
-            //Text::make('Link', 'link')->rules('required','string', 'max:255'),            
+            Select2::make(__('Posición(ingresa solo una posición)'), 'posicion')
+                    ->options(Posicion::where('estado','disponible')->get()->mapWithKeys(function ($posicion) {
+                      return [$posicion->id => $posicion->numero];
+                    }))
+                    ->displayUsingLabels()
+                    ->maxResults(10)
+                    ->hideFromIndex(),          
             Image::make('Imagen 1400x800', 'image')->disk('web')->disableDownload(),
         ];
     }

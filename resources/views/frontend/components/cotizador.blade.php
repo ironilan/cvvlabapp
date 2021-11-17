@@ -12,7 +12,10 @@
 				@if (Cart::count() > 0)
 					@foreach (Cart::content() as $cart)
 					<li>
-						{{$cart->name}} <strong class="float-right">S/. {{$cart->price}}</strong>
+						<div >
+							{{$cart->name}} <strong class="float-right">S/. {{$cart->price}}</strong>
+						</div>
+						<small title="eliminar" onclick="deleteItem('{{$cart->rowId}}')" class="remove_item"><i class="icon-trash-6"></i></small>
 					</li>
 				 	@endforeach
 				@endif

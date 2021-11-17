@@ -254,7 +254,32 @@
 
 
 
-		$('#formRegister').submit(function(e){
+		$('#formLogin').submit(function(e){
+	        e.preventDefault();
+	        
+	        let token = '{{ csrf_token() }}';
+	        let data = new FormData(document.getElementById("formLogin"));
+	        let url = '{{ route('cliente.login') }}';
+	        
+	        $.ajax({
+	            headers: { 'X-CSRF-TOKEN': token },
+	            url: url,
+	            type: 'POST',
+	            contentType: false,
+	            data: data,
+	            processData: false,
+	            success: res => {
+	               location.href = res.redirect;
+	               //console.log(res);
+	            },
+	            error: error => {
+	                console.log(error);
+	            }
+	        });
+	    });
+
+
+	    $('#formRegister').submit(function(e){
 	        e.preventDefault();
 	        
 	        let token = '{{ csrf_token() }}';

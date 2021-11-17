@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a39ffd63ed35a88eec2fbd0cc57e374e",
+    "content-hash": "97924fb95c9d00e9c9f52ceffd19684b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7080,6 +7080,66 @@
                 }
             ],
             "time": "2021-06-24T08:13:00+00:00"
+        },
+        {
+            "name": "techouse/select-auto-complete",
+            "version": "v1.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/techouse/select-auto-complete.git",
+                "reference": "5364505135a9e6b0729bb81562911a75bcecbf1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/techouse/select-auto-complete/zipball/5364505135a9e6b0729bb81562911a75bcecbf1b",
+                "reference": "5364505135a9e6b0729bb81562911a75bcecbf1b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.6 || ^6.0 || ^7.0 || ^8.0",
+                "laravel/nova": "*",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Techouse\\SelectAutoComplete\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Techouse\\SelectAutoComplete\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Klemen Tušar",
+                    "email": "techouse@gmail.com"
+                }
+            ],
+            "description": "An auto-completing Laravel Nova search field.",
+            "keywords": [
+                "auto complete",
+                "autocomplete",
+                "drop down",
+                "dropdown",
+                "laravel",
+                "nova",
+                "search",
+                "select",
+                "suggest"
+            ],
+            "support": {
+                "issues": "https://github.com/techouse/select-auto-complete/issues",
+                "source": "https://github.com/techouse/select-auto-complete/tree/v1.3.6"
+            },
+            "time": "2020-11-07T10:33:12+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

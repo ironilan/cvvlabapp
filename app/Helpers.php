@@ -3,6 +3,7 @@
 use App\Models\Areapractica;
 use App\Models\Categoria;
 use App\Models\Config;
+use App\Models\Whatsapp;
 
 
 function setting()
@@ -25,4 +26,10 @@ function categorias()
 function subcategorias()
 {
 	return Subategoria::orderBy('name', 'asc')->get();
+}
+
+
+function whatsapp()
+{
+	return Whatsapp::orderBy('nombre', 'asc')->get();
 }

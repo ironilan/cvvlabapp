@@ -50,7 +50,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         Gate::define('viewNova', function ($user) {
             return in_array($user->email, [
-                'ilanvaldez34@gmail.com'
+                'ilanvaldez34@gmail.com',
+                'gerencia@cvvlab.pe',
+                'dcernaavila@gmail.com'
             ]);
         });
     }
@@ -113,6 +115,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                                 'icon' => null,
                                 'target' => '_self',
                                 'path' => '/resources/banners',
+                                'params' => [ 'resourceId' => 1 ]
+                            ]),
+                            InternalLink::make([
+                                'label' => 'Whatsapp',
+                                'badge' => null,
+                                'icon' => null,
+                                'target' => '_self',
+                                'path' => '/resources/whatsapps',
                                 'params' => [ 'resourceId' => 1 ]
                             ]),
                                                         

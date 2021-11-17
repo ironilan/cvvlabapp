@@ -530,7 +530,7 @@ header.static {
 ul#top_access {
   float: right;
   position: relative;
-  top: 3px;
+  top: 9px;
   margin: -1px 0 0 0;
 }
 @media (max-width: 991px) {

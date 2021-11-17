@@ -2,13 +2,14 @@
       <div id="rev_slider_72_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.1">
         <ul>
           @foreach ($banners as $key => $banner)
-          @if ($key == 0)
+          {{-- @if ($key == 0)
             @include('frontend.components.tipos_slider.slide1')
           @elseif($key == 1)
             @include('frontend.components.tipos_slider.slide2')
           @else
             @include('frontend.components.tipos_slider.slide3')
-          @endif
+          @endif --}}
+          @include('frontend.components.tipos_slider.slide1')
           @endforeach          
         </ul>
         <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>

@@ -23,12 +23,25 @@ class HomeController extends Controller
     }
 
 
-    public function examenes()
+    public function iconos()
     {
+       
+        return view('iconos');
+    }
+
+
+    public function examenes(Request $request)
+    {
+
         $areas = Area::all();
         $tipos = Tipomuestra::all();
 
-        //Cart::destroy();
+        if (isset($request->idexamen)) {
+            $examen = Examen::find($request->idexamen);
+            if ($examen) {
+                Cart::add($examen->id, $examen->title, 1, $examen->price, ['reserva' => []], 0);
+            }
+        }
 
         return view('frontend.examenes', compact('areas', 'tipos'));
     }
@@ -130,7 +143,22 @@ class HomeController extends Controller
     }
 
     
-    
+    public function removeItemCart(Request $request)
+    {
+
+        Cart::remove($request->idrow);
+
+        $data = Cart::content();
+        $viewButton = true;
+
+        return view('frontend.components.cotizador', compact('data', 'viewButton'));
+    }
+
+
+    public function limpiarCart(Request $request)
+    {
+        
+    }
 
     
 

@@ -59,7 +59,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 
- 
+  <link rel="stylesheet" href="{{asset('frontend/plugins/whatsapp_chat_support/plugin/whatsapp-chat-support.css')}}">
 
   <!-- BASE CSS -->
   <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -75,8 +75,10 @@
   <link href="{{asset('frontend/css/custom.css')}}" rel="stylesheet">
   <link href="{{asset('frontend/css/estilos.css')}}" rel="stylesheet">
 
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 
   @yield('estilos')
@@ -153,95 +155,13 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
-  <!-- REVOLUTION SLIDER SCRIPTS -->
-  <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/jquery.themepunch.tools.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/jquery.themepunch.revolution.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/extensions/revolution.extension.actions.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/extensions/revolution.extension.carousel.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/extensions/revolution.extension.kenburn.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/extensions/revolution.extension.layeranimation.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/extensions/revolution.extension.migration.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/extensions/revolution.extension.navigation.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/extensions/revolution.extension.parallax.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('frontend/rev-slider-files/js/extensions/revolution.extension.video.min.js')}}"></script>
-  <script type="text/javascript">
-      var tpj=jQuery;
-      var revapi72;
-      tpj(document).ready(function() {
-        if(tpj("#rev_slider_72_1").revolution == undefined){
-          revslider_showDoubleJqueryError("#rev_slider_72_1");
-        }else{
-          revapi72 = tpj("#rev_slider_72_1").show().revolution({
-            sliderType:"standard",
-            jsFileLocation:"rev-slider-files/js/",
-            sliderLayout:"auto",
-            dottedOverlay:"none",
-            delay:9000,
-            navigation: {
-              keyboardNavigation:"off",
-              keyboard_direction: "horizontal",
-              mouseScrollNavigation:"off",
-                             mouseScrollReverse:"default",
-              onHoverStop:"off",
-              touch:{
-                touchenabled:"on",
-                touchOnDesktop:"off",
-                swipe_threshold: 75,
-                swipe_min_touches: 1,
-                swipe_direction: "horizontal",
-                drag_block_vertical: false
-              }
-              ,
-              arrows: {
-                style:"gyges",
-                enable:true,
-                hide_onmobile:true,
-                hide_under:560,
-                hide_onleave:true,
-                hide_delay:200,
-                hide_delay_mobile:1200,
-                tmp:'',
-                left: {
-                  h_align:"left",
-                  v_align:"center",
-                  h_offset:20,
-                                    v_offset:0
-                },
-                right: {
-                  h_align:"right",
-                  v_align:"center",
-                  h_offset:20,
-                                    v_offset:0
-                }
-              }
-            },
-            visibilityLevels:[1240,1024,778,480],
-            gridwidth:1240,
-            gridheight:600,
-            lazyType:"none",
-            shadow:0,
-            spinner:"spinner0",
-            stopLoop:"off",
-            stopAfterLoops:-1,
-            stopAtSlide:-1,
-            shuffle:"off",
-            autoHeight:"off",
-            disableProgressBar:"on",
-            hideThumbsOnMobile:"off",
-            hideSliderAtLimit:0,
-            hideCaptionAtLimit:0,
-            hideAllCaptionAtLilmit:0,
-            debugMode:false,
-            fallbacks: {
-              simplifyAll:"off",
-              nextSlideOnWindowFocus:"off",
-              disableFocusListener:false,
-            }
-          });
-        }
-      }); /*ready*/
+  <script src="{{asset('frontend/plugins/whatsapp_chat_support/plugin/components/moment/moment.min.js')}}"></script>
+  <script src="{{asset('frontend/plugins/whatsapp_chat_support/plugin/components/moment/moment-timezone-with-data.min.js')}}"></script>
+  <script src="{{asset('frontend/plugins/whatsapp_chat_support/plugin/whatsapp-chat-support.js')}}"></script>
 
+  <script type="text/javascript">
+     
+    $('#example_1').whatsappChatSupport();
 
 
       $('.avatar_content').click(function(){

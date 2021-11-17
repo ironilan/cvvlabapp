@@ -130,6 +130,17 @@
 	}
 
 
+
+	//addcart
+	const deleteItem = (idrow) => {
+		let url = `{{ url('removeItemCart') }}?idrow=${idrow}`;
+
+		$.get(url, res =>{
+			$('#sidebar').html(res);
+		})
+	}
+
+
 	
 	
 	

@@ -71,3 +71,38 @@
       </div>
     </div>
   </footer>
+
+
+  <div class="whatsapp_chat_support wcs_fixed_right" id="example_1">
+            <div class="wcs_button_label">
+                ¿Tienes alguna duda?
+            </div>  
+            <div class="wcs_button wcs_button_circle">
+                <span class="fab fa-whatsapp" style="font-size: 40px; padding-top: 4px;"></span>
+            </div>  
+
+            <div class="wcs_popup">
+                <div class="wcs_popup_close">
+                    <span class="fa fa-close"></span>
+                </div>
+                <div class="wcs_popup_content">
+                    <div class="wcs_popup_header">
+                        <strong>Escríbenos aquí</strong>
+                        <br>
+                        <div class="wcs_popup_header_description">Click en alguna de las siguientes burbujas</div>
+                    </div>  
+                    <div class="wcs_popup_person_container">
+                        @foreach (whatsapp() as $wp)
+                        <div class="wcs_popup_person" data-number="{{$wp->numero}}" data-default-msg="{{$wp->mensaje}}">
+                            <div class="wcs_popup_person_img"><img src="{{Storage::url($wp->imagen)}}" alt=""></div>
+                            <div class="wcs_popup_person_content">
+                                <div class="wcs_popup_person_name">{{$wp->nombre}}</div>
+                                <div class="wcs_popup_person_description">{{$wp->area}}</div>
+                                <div class="wcs_popup_person_status">Estoy en línea</div>
+                            </div>  
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>  

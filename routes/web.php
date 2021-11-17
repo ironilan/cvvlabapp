@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('inicio');
+Route::get('iconos', [HomeController::class, 'iconos'])->name('iconos');
 
 Route::get('nosotros', [HomeController::class, 'nosotros'])->name('nosotros');
 Route::get('examenes', [HomeController::class, 'examenes'])->name('examenes');
@@ -35,6 +36,7 @@ Route::get('promociones', [HomeController::class, 'promociones'])->name('promoci
 
 Route::get('getExamenes', [HomeController::class, 'getExamenes'])->name('examenes.getExamenes');
 Route::get('setCartExamen', [HomeController::class, 'setCartExamen'])->name('examenes.setCartExamen');
+Route::get('removeItemCart', [HomeController::class, 'removeItemCart'])->name('examenes.removeItemCart');
 Route::get('getCompra', [HomeController::class, 'getCompra'])->name('getCompra');
 
 

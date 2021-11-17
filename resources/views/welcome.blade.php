@@ -2,7 +2,24 @@
 
 @section('contenido')
 
-@include('frontend.components.slider')
+{{-- @include('frontend.components.slider') --}}
+
+<section class="app_slider_contet" style="">
+  <div class="slider_app">
+    @foreach ($banners as $key => $banner)
+    <div class="app_item">
+      <a href="{{ url('examenes') }}?idexamen={{$banner->examen}}">
+        <img src="{{Storage::url('web/'.$banner->image)}}" alt="" style="width: 100%;">
+        <div class="app_texto_slide">
+          <h2 class="">{{$banner->title}}</h2>
+          <h4 class="">{{$banner->subtitle}}</h4>
+        </div>
+      </a>
+    </div>
+    @endforeach
+  </div>
+</section>
+
 
 <div class="container margin_120_95">
       <div class="main_title">
@@ -62,55 +79,7 @@
     </div>
     <!-- /white_bg -->
 
-    <div class="container margin_120_95">
-      <div class="main_title">
-        <h2>Destacados</h2>
-        <p>Ofrecemos un servicio integral, abarcando desde los análisis clínicos más básicos de rutina hasta los más sofisticados de genética molecular.</p>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-xl-4 col-lg-5 col-md-6">
-          <div class="list_home">
-            <div class="list_title">
-              <i class="icon_pin_alt"></i>
-              <h3>COVID 19</h3>
-            </div>
-            <ul>
-              <li><a href="#0"><strong>S/ 23</strong>Prueba Molecular Rapida</a></li>
-              <li><a href="#0"><strong>23</strong>Prueba Rapida Antigena</a></li>
-              <li><a href="#0"><strong>23</strong>Prueba de Elisa</a></li>
-              <li><a href="#0"><strong>23</strong>Prueba Rapida de Anticuerpo</a></li>
-              <li><a href="#0"><strong>23</strong>Prueba Nolecular PCR</a></li>
-              <li><a href="#0"><strong>23</strong>Prueba Rapida de Antigenos</a></li>
-              <li><a href="#0"><strong>23</strong>Prueba Molecular</a></li>
-              <li><a href="#0"><strong>23</strong>Prueba Rapida</a></li>
-              <li><a href="#0">Ver mas...</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-5 col-md-6">
-          <div class="list_home">
-            <div class="list_title">
-              <i class="icon_archive_alt"></i>
-              <h3>IMUNOBIOLOGOS</h3>
-            </div>
-            <ul>
-              <li><a href="#0"><strong>23</strong>Allergist</a></li>
-              <li><a href="#0"><strong>23</strong>Cardiologist</a></li>
-              <li><a href="#0"><strong>23</strong>Chiropractor</a></li>
-              <li><a href="#0"><strong>23</strong>Dentist</a></li>
-              <li><a href="#0"><strong>23</strong>Dermatologist</a></li>
-              <li><a href="#0"><strong>23</strong>Gastroenterologist</a></li>
-              <li><a href="#0"><strong>23</strong>Ophthalmologist</a></li>
-              <li><a href="#0"><strong>23</strong>Optometrist</a></li>
-              <li><a href="#0"><strong>23</strong>Pediatrician</a></li>
-              <li><a href="#0">More....</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- /row -->
-    </div>
-    <!-- /container -->
+ 
 
     <div id="app_section">
       <div class="container">
@@ -137,48 +106,61 @@
       <!-- /container -->
     </div>
     
-    {{-- <div class="cta_subscribe">
-      <div class="container-fluid h-100">
-        <div class="row h-100 justify-content-center align-items-center">
-          <div class="col-md-6 p-0">
-            <div class="block_1">
-              <figure><img src="{{asset('frontend/img/doctors_icon.svg')}}" alt=""></figure>
-              <h3>Are you a Doctor?</h3>
-              <p>The service allows you to get maximum visibility online and to manage appointments and contacts coming from the site, in a simple and fast way.</p>
-              <a href="register-doctor.html" class="btn_1">Read more</a>
-            </div>
-          </div>
-          <div class="col-md-6 p-0">
-            <div class="block_2">
-              <figure><img src="{{asset('frontend/img/patient_icon.svg')}}" alt=""></figure>
-              <h3>Are you a patient?</h3>
-              <p>Choosing a specialist has never been so fast! You can filter search results by location and medical specialization, and book medical examination online.</p>
-              <a href="register.html" class="btn_1">Read more</a>
-            </div>
-          </div>
-        </div>
-        <!-- /row -->
-      </div>
-      <!-- /container -->
-    </div> --}}
+    
 @endsection
 
 @section('scripts')
-{{-- <script>
-    (function () {
-        var options = {
-            //facebook: "151106194904360", // Facebook page ID
-            whatsapp: "+{{setting()->whatsapp}}", // WhatsApp number
-            call_to_action: "Envíanos un mensaje", // Call to action
-            button_color: "#129BF4", // Color of button
-            position: "left", // Position may be 'right' or 'left'
-            order: "whatsapp,facebook", // Order of buttons
-        };
-        var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
-        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
-        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
-        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-    })();
-</script> --}}
+
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+  
+$('.slider_app').slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  fade: true,
+  autoplay: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+</script>
+
+@endsection
+
+@section('estilos')
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
 @endsection

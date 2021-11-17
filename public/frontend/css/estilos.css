@@ -81,6 +81,37 @@
 	background: #009ee3!important;
 }
 
+.app_slider_contet{
+	overflow: hidden;
+	position: relative;
+}
+
+.app_texto_slide{
+	position: absolute;
+	top: 15rem;
+	left: 7rem;
+}
+
+.app_texto_slide h2{
+	font-size: 50px;
+	color: #19838A;
+	font-weight: bold;
+}
+
+.app_texto_slide h4{
+	font-size: 27px;
+	color: #19838A;
+}
+
+
+.remove_item{
+	display: block;
+    text-align: right;
+    font-size: 16px;
+    color: red;
+    cursor: pointer;
+}
+
 
 @media only screen and (max-width: 900px) {
 	.app_content_modal{
@@ -102,5 +133,12 @@
 
 	.app_reg_{
 		padding-top: 0;
+	}
+
+	.app_texto_slide {
+	    position: absolute;
+	    top: 2rem;
+	    left: 1rem;
+	    width: 70%;
 	}
 }
