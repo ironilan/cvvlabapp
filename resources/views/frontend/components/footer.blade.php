@@ -13,7 +13,7 @@
           <ul class="links">
             <li><a href="{{ url('nosotros') }}">Sobre Nosotros</a></li>
             <li><a href="{{ url('examenes') }}">Examenes</a></li>
-            <li><a href="{{ url('faq') }}">Preguntas Frecuentes</a></li>
+         
             <li><a href="{{ url('login') }}">Login</a></li>
             <li><a href="{{ url('register') }}">Register</a></li>
           </ul>
@@ -21,11 +21,11 @@
         <div class="col-lg-3 col-md-4">
           <h5>Intranet</h5>
           <ul class="links">
-            <li><a href="#0">Doctores</a></li>
-            <li><a href="#0">Empresas</a></li>
-            <li><a href="#0">Pacientes</a></li>
-            <li><a href="#0">Registrarme como Doctor</a></li>
-            <li><a href="#0">Ver Resultados</a></li>
+            <li><a href="https://inkary.com.pe/ResultadosCCVLab/Medico">Médicos</a></li>
+            <li><a href="https://inkary.com.pe/ResultadosCCVLab/Empresa">Empresas</a></li>
+            <li><a href="https://inkary.com.pe/ResultadosCCVLab/Paciente">Pacientes</a></li>
+       
+            <li><a href="{{ url('resultados') }}">Ver Resultados</a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-4">
@@ -61,7 +61,7 @@
       <div class="row">
         <div class="col-md-8">
           <ul id="additional_links">
-            <li><a href="#0">Terminos y condiciones</a></li>
+            <li><a href="{{ url('terminos_y_condiciones') }}">Terminos y condiciones</a></li>
             
           </ul>
         </div>

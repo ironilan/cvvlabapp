@@ -113,6 +113,26 @@
 }
 
 
+.slick-prev:before, .slick-next:before{
+  font-size: 94px!important;  
+}
+
+.slick-prev:after, .slick-next:after{
+  font-size: 94px!important;  
+}
+
+
+.slick-next{
+  right: 5rem!important;
+  z-index: 1000;
+}
+
+.slick-prev{
+  left: 1rem!important;
+  z-index: 1000;
+}
+
+
 @media only screen and (max-width: 900px) {
 	.app_content_modal{
 		width: 60%;
@@ -140,5 +160,18 @@
 	    top: 2rem;
 	    left: 1rem;
 	    width: 70%;
+	}
+
+
+	.slick-prev:before, .slick-next:before{
+	  font-size: 48px!important;  
+	}
+
+	.slick-prev:after, .slick-next:after{
+	  font-size: 48px!important;  
+	}
+
+	.slick-next{
+	  right: 7rem!important;
 	}
 }

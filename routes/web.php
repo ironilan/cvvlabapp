@@ -29,6 +29,7 @@ Route::get('iconos', [HomeController::class, 'iconos'])->name('iconos');
 Route::get('nosotros', [HomeController::class, 'nosotros'])->name('nosotros');
 Route::get('examenes', [HomeController::class, 'examenes'])->name('examenes');
 Route::get('reservar', [HomeController::class, 'reservar'])->name('reservar');
+Route::get('resultados', [HomeController::class, 'resultados'])->name('resultados');
 
 Route::get('contacto', [HomeController::class, 'contacto'])->name('contacto');
 Route::get('promociones', [HomeController::class, 'promociones'])->name('promociones');

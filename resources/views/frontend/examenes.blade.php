@@ -131,7 +131,7 @@
 
 
 
-	//addcart
+	//removecart
 	const deleteItem = (idrow) => {
 		let url = `{{ url('removeItemCart') }}?idrow=${idrow}`;
 

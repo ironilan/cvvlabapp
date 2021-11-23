@@ -110,6 +110,19 @@
     .show_menu{
       display: block!important;
     }
+
+
+    .cverdeccv{
+      color: #10495f;
+      font-weight: bold;
+    }
+
+
+    .py-10{
+      padding: 5rem 0;
+
+    }
+
   </style>
   
 </head>

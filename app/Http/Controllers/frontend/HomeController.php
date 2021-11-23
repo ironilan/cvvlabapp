@@ -229,4 +229,10 @@ class HomeController extends Controller
     {
         return view('frontend.terminos');
     }
+
+
+    public function resultados()
+    {
+        return view('frontend.resultados');
+    }
 }

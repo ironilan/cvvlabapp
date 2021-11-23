@@ -4,7 +4,7 @@
 			
 			<div class="wrapper">
 				<small class="categoria">{{$examen->area->title}}</small>
-				<h3 class="nombre_examen">{{$examen->title}} </h3>
+				<h3 class="nombre_examen">{{$examen->title}} | <b class="cverdeccv">S/. {{$examen->price}}</b> </h3>
 
 				<p>{{$examen->description}}</p>
 				

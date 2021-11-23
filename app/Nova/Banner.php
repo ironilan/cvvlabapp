@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Models\Examen;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
@@ -42,13 +43,14 @@ class Banner extends Resource
      */
     public function fields(Request $request)
     {
+        
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Título', 'title')->rules('required','string', 'max:255'),
             Text::make('Subtítulo', 'subtitle')->rules('required','string', 'max:255'),
-            Select2::make(__('Posición(ingresa solo una posición)'), 'posicion')
-                    ->options(Posicion::where('estado','disponible')->get()->mapWithKeys(function ($posicion) {
-                      return [$posicion->id => $posicion->numero];
+            Select2::make(__('Examen'), 'examen')
+                    ->options(Examen::get()->mapWithKeys(function ($examen) {
+                      return [$examen->id => $examen->title];
                     }))
                     ->displayUsingLabels()
                     ->maxResults(10)
