@@ -33,7 +33,7 @@
         <div id="reccomended" class="owl-carousel owl-theme">
           @foreach ($promociones as $prom)
           <div class="item">
-            <a href="#">
+            <a href="{{url('promociones')}}?idprom={{$prom->id}}">
               <div class="views"><i class="icon-money"></i>{{$prom->price}}</div>
               <img src="{{Storage::url($prom->image)}}" alt="">
             </a>

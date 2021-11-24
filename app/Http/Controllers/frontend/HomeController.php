@@ -122,10 +122,18 @@ class HomeController extends Controller
         return view('frontend.nosotros');
     }
 
-    public function promociones()
+    public function promociones(Request $request)
     {
         $viewButton = true;
         $promociones = Examen::whereTipo('promocion')->latest('id')->paginate(10);
+
+        if (isset($request->idprom)) {
+            $examen = Examen::find($request->idprom);
+            if ($examen) {
+                Cart::add($examen->id, $examen->title, 1, $examen->price, ['reserva' => []], 0);
+            }
+        }
+
         return view('frontend.promociones', compact('promociones', 'viewButton'));
     }
 
