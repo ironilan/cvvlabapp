@@ -16,6 +16,7 @@
          
             <li><a href="{{ url('login') }}">Login</a></li>
             <li><a href="{{ url('register') }}">Register</a></li>
+            <li><a href="{{ url('comercial') }}">Empresas</a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-4">

@@ -33,6 +33,8 @@ Route::get('resultados', [HomeController::class, 'resultados'])->name('resultado
 
 Route::get('contacto', [HomeController::class, 'contacto'])->name('contacto');
 Route::get('promociones', [HomeController::class, 'promociones'])->name('promociones');
+Route::get('comercial', [HomeController::class, 'comercial'])->name('comercial');
+Route::post('comercial', [HomeController::class, 'sendComercial'])->name('send.comercial');
 
 
 Route::get('getExamenes', [HomeController::class, 'getExamenes'])->name('examenes.getExamenes');

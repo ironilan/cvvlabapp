@@ -235,4 +235,14 @@ class HomeController extends Controller
     {
         return view('frontend.resultados');
     }
+
+    public function comercial()
+    {
+        return view('frontend.comercial');
+    }
+
+    public function sendComercial(Request $request)
+    {
+        
+    }
 }
